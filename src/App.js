@@ -1,20 +1,27 @@
-import React from'react';
+import React from 'react';
 import { fetchPeople } from './api';
+import People from './components/People/People';
 
 class App extends React.Component {
+
+    state = {
+        data: {}
+    }
 
     async componentDidMount() {
         const fetchedPeople = await fetchPeople();
 
-        console.log(fetchedPeople);
+        this.setState({ data: fetchedPeople })
     }
 
     render() {
 
+        const { data } = this.state;
+
         return(
             <div>
                 <h1>ISS Tracker</h1>
-                {/* <p>Number of people in the ISS is {fetchedPeople.number}</p> */}
+                <People data={data} />
             </div>
         )
     }
