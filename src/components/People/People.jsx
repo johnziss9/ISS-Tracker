@@ -8,8 +8,8 @@ const People = ({ data: { number, people }}) => {
     for (var i = 1; i <= number; i++)
         totalPeople.push(i);
     
-    const peopleInArray = totalPeople.map(() =>
-        <img src={person} alt="person" />
+    const peopleInArray = totalPeople.map((i) =>
+        <img key={i} src={person} alt="person" />
     );
 
     console.log(totalPeople);

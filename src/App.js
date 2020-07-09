@@ -19,7 +19,7 @@ class App extends React.Component {
         const { data } = this.state;
 
         return(
-            <div>
+            <div className="container">
                 <h1>ISS Tracker</h1>
                 <People data={data} />
             </div>
