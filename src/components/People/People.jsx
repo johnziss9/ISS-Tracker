@@ -1,24 +1,24 @@
 import React from 'react';
 import person from '../../images/person.png';
+import styles from './People.module.css';
 
 const People = ({ data: { number, people }}) => {
 
-    const totalPeople = [];
+    const peopleNames = [];
 
-    for (var i = 1; i <= number; i++)
-        totalPeople.push(i);
-    
-    const peopleInArray = totalPeople.map((i) =>
-        <img key={i} src={person} alt="person" />
-    );
-
-    console.log(totalPeople);
+    for (var i = 0; i < number; i++) {
+        peopleNames.push(people[i].name);
+    }
 
     return (
-        <div>
-            <h2>People currently on the IIS</h2>
-            <p>Number of people currently on the IIS: { number }</p>
-            <div>{peopleInArray}</div>
+        <div className={`${styles.container} container`}>
+            <h2 className={styles.title}>People currently on the IIS</h2>
+            <h5 className={styles.subtitle}>Total Number: { number }</h5>
+            {peopleNames.map((name, i) => 
+                <h6 className={styles.personName}>
+                    <img src={person} alt="person" className={styles.personImg} />
+                    {name}
+                </h6>)}
         </div>
     )
 }
