@@ -1,6 +1,9 @@
 import React from 'react';
 import { fetchPeople } from './api';
 import People from './components/People/People';
+import styles from './App.module.css';
+import iss from './images/iss.png';
+import globe from './images/globe.png';
 
 class App extends React.Component {
 
@@ -22,25 +25,26 @@ class App extends React.Component {
             <div className="container">
                 <div className="pos-f-t">
                     <nav className={`${styles.navbar} navbar`}>
-                        <div className="logo-container">
-                            {/* <img className="logo-img" src={logo} alt="logo" /> */}
-                            <h1>Test</h1>
+                        <div className={styles.logoContainer}>
+                            <img className={styles.logo} src={iss} alt="logo" />
+                            <h3 className={styles.title}>ISS Tracker</h3>
                         </div>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
+                        <button className={`${styles.navbarToggler} navbar-toggler`} type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className={`${styles.navbarTogglerIcon} navbar-toggler-icon`}></span>
                         </button>
                     </nav>
                     <div className="collapse" id="navbarToggleExternalContent">
-                        <div className="nav-items-container p-1">
-                            <ul>
-                                <li className="nav-item"><a className="nav-tem-link" href="/">Current Location</a></li>
-                                <li className="nav-item"><a className="nav-tem-link" href="/">Pass Times</a></li>
-                                <li className="nav-item"><a className="nav-tem-link" href="/">People</a></li>
+                        <div >
+                            <ul className={styles.navList}>
+                                <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">Current Location</a></li>
+                                <li className={`${styles.navItem} nav-item`}><img src={globe} className={styles.separator} alt="globe" /></li>
+                                <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">Pass Times</a></li>
+                                <li className={`${styles.navItem} nav-item`}><img src={globe} className={styles.separator} alt="globe" /></li>
+                                <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">People</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <h1>ISS Tracker</h1>
                 <People data={data} />
             </div>
         )
