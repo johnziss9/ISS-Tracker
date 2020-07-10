@@ -10,7 +10,7 @@
 }
 
 .navbar {
-    padding: 0 !important;
+    padding: 5px 0 0 0 !important;
 }
 
 .logo {
@@ -22,17 +22,19 @@
     float: left;
     margin-left: 15px;
     margin-top: 7px;
+    color: white;
 }
 
 /* Changing the colour of the toggler start */
 .navbarToggler {
-    border-color: rgba(0, 0, 0) !important;
+    border-color: rgba(255, 255, 255) !important;
+    border-width: 2px !important;
     outline: none !important;
 }
 
 .navbarTogglerIcon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
-}
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+} 
 /* Changing the colour of the toggler end */
 
 .navList {
@@ -46,11 +48,12 @@
 }
 
 .navItemLink {
-    color: black;
+    color: white;
+    font-weight: bold;
 }
 
 .navItemLink:hover {
-    color: black;
+    color: white;
 }
 
 .separator {
