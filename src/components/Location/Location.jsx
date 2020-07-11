@@ -1,19 +1,15 @@
 import React from 'react';
 import styles from './Location.module.css';
 import { Map, GoogleApiWrapper, Marker  } from 'google-maps-react';
+import { getDefaultNormalizer } from '@testing-library/react';
 // import mapIcon from '../../images/iss_map_icon.png';
 
 class Location extends React.Component {
-    
-    constructor() {
-        super();
-        this.state = {
-            name: "React"
-        };
-    }
 
     render() {
 
+        const { locationData: { iss_position, timestamp }} = this.props;
+        
         const mapStyles = {
             width: '100%',
             height: '100%'
@@ -24,10 +20,29 @@ class Location extends React.Component {
             height: '50%'
           }
 
+        function getTime() {
+            const unitTimestamp = timestamp;
+
+            const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+            const date = new Date(unitTimestamp * 1000);
+            const year = date.getFullYear();
+            const month = months[date.getMonth()];
+            const day = date.getDate();
+            const hours = date.getHours();
+            const minutes = "0" + date.getMinutes();
+            const seconds = "0" + date.getSeconds();
+
+            const converted = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
+
+            return converted;
+        }
+
         return (
 
             <div className={`${styles.container} container`}>
                 <h2>Current Location of ISS</h2>
+                <h4>Time of location shown: {getTime()}</h4>
                 <Map
                     google={this.props.google}
                     zoom={3}

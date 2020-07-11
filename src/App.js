@@ -5,22 +5,27 @@ import Location from './components/Location/Location';
 import styles from './App.module.css';
 import iss from './images/iss.png';
 import globe from './images/globe.png';
+import { fetchLocation } from './api';
+
 
 class App extends React.Component {
 
     state = {
-        data: {}
+        peopleData: {},
+        locationData: {}
     }
 
     async componentDidMount() {
         const fetchedPeople = await fetchPeople();
+        const fetchedLocation = await fetchLocation();
 
-        this.setState({ data: fetchedPeople })
+        this.setState({ peopleData: fetchedPeople });
+        this.setState({ locationData: fetchedLocation });
     }
 
     render() {
 
-        const { data } = this.state;
+        const { peopleData, locationData } = this.state;
 
         return(
             <div className={styles.body}>
@@ -48,7 +53,7 @@ class App extends React.Component {
                         </div>
                     </div>
                     {/* <People data={data} /> */}
-                    <Location />
+                    <Location locationData={locationData} />
                 </div>
             </div>
         )
