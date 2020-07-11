@@ -1,6 +1,7 @@
 import React from 'react';
 import { fetchPeople } from './api';
 import People from './components/People/People';
+import Location from './components/Location/Location';
 import styles from './App.module.css';
 import iss from './images/iss.png';
 import globe from './images/globe.png';
@@ -46,7 +47,8 @@ class App extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <People data={data} />
+                    {/* <People data={data} /> */}
+                    <Location />
                 </div>
             </div>
         )
