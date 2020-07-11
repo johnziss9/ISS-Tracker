@@ -7,7 +7,6 @@ import iss from './images/iss.png';
 import globe from './images/globe.png';
 import { fetchLocation } from './api';
 
-
 class App extends React.Component {
 
     state = {
