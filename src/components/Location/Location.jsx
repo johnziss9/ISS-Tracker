@@ -8,8 +8,8 @@ class Location extends React.Component {
 
     render() {
 
-        const { locationData: { iss_position, timestamp }} = this.props;
-        
+        const { locationData: { longitude, latitude, timestamp }} = this.props;
+       
         const mapStyles = {
             width: '100%',
             height: '100%'

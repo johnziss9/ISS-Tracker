@@ -21,9 +21,9 @@ export const fetchLocation = async () => {
     const locationUrl = `${url}/iss-now.json`;
 
     try {
-        const { data: { iss_position, timestamp }} = await axios.get(locationUrl);
+        const { data: { iss_position: { longitude, latitude }, timestamp }} = await axios.get(locationUrl);
 
-        return { iss_position, timestamp };
+        return { longitude, latitude, timestamp };
 
     } catch (error) {
         console.log(error);
