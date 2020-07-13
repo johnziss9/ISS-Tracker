@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './Location.module.css';
 import { Map, GoogleApiWrapper, Marker  } from 'google-maps-react';
-import { getDefaultNormalizer } from '@testing-library/react';
-// import mapIcon from '../../images/iss_map_icon.png';
 
 class Location extends React.Component {
 
@@ -42,28 +40,29 @@ class Location extends React.Component {
 
             <div className={`${styles.container} container`}>
                 <h2>Current Location of ISS</h2>
-                <h4>Time of location shown: {getTime()}</h4>
+                <h4>Last update of location shown: {getTime()}</h4>
                 <Map
                     google={this.props.google}
                     zoom={3}
                     style={mapStyles}
                     containerStyle={containerStyle}
                     className={styles.map}
-                    initialCenter={{
-                        lat: 40.5230,
-                        lng: -99.8445
+                    center={{
+                        lat: latitude,
+                        lng: longitude
                     }}
                     width="50%"
                     height="50%"
+                    disableDefaultUI={true}
                 >
                    <Marker
                         onClick={this.onMarkerClick}
                         name={'ISS Location'}
-                        // icon={{
-                        //     url: '../../images/iss_map_icon.png',
-                        //     anchor: new google.maps.Point(32,32),
-                        //     scaledSize: new google.maps.Size(64,64)
-                        // }}
+                        icon={{
+                            url: 'http://localhost:3002/iss_map_icon.png',
+                            size: new this.props.google.maps.Size(64, 63)
+                        }}
+                        position={{ lat: latitude, lng: longitude}}
                     />
                 </Map>
             </div>
