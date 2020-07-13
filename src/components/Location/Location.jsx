@@ -13,9 +13,11 @@ class Location extends React.Component {
             height: '100%'
         };
 
+        console.log(window.innerWidth);
+
         const containerStyle = {
-            width: '50%',
-            height: '50%'
+            width: window.innerWidth > 700 ? '60%' : '80%',
+            height: '400px'
           }
 
         function getTime() {
@@ -43,7 +45,7 @@ class Location extends React.Component {
                 <h4>Last update of location shown: {getTime()}</h4>
                 <Map
                     google={this.props.google}
-                    zoom={3}
+                    zoom={window.innerWidth > 700 ? 3 : 2}
                     style={mapStyles}
                     containerStyle={containerStyle}
                     className={styles.map}
@@ -51,8 +53,6 @@ class Location extends React.Component {
                         lat: latitude,
                         lng: longitude
                     }}
-                    width="50%"
-                    height="50%"
                     disableDefaultUI={true}
                 >
                    <Marker
