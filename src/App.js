@@ -1,30 +1,39 @@
 import React from 'react';
-import { fetchPeople } from './api';
-import People from './components/People/People';
-import Location from './components/Location/Location';
 import styles from './App.module.css';
 import iss from './images/iss.png';
 import globe from './images/globe.png';
-import { fetchLocation } from './api';
+
+// import People from './components/People/People';
+// import Location from './components/Location/Location';
+import PassTimes from './components/PassTimes/PassTimes';
+
+// import { fetchPeople } from './api';
+// import { fetchLocation } from './api';
+import { fetchPassTimes } from './api';
 
 class App extends React.Component {
 
     state = {
-        peopleData: {},
-        locationData: {}
+        // peopleData: {},
+        // locationData: {},
+        passTimesData: {}
     }
 
     async componentDidMount() {
-        const fetchedPeople = await fetchPeople();
-        const fetchedLocation = await fetchLocation();
+        // const fetchedPeople = await fetchPeople();
+        // const fetchedLocation = await fetchLocation();
+        const fetchedPassTimes = await fetchPassTimes();
 
-        this.setState({ peopleData: fetchedPeople });
-        this.setState({ locationData: fetchedLocation });
+        // this.setState({ peopleData: fetchedPeople });
+        // this.setState({ locationData: fetchedLocation });
+        // this.setState({ passTimesData: fetchedPassTimes });
+
+        console.log(fetchedPassTimes)
     }
 
     render() {
 
-        const { peopleData, locationData } = this.state;
+        // const { peopleData, locationData, passTimesData } = this.state;
 
         return(
             <div className={styles.body}>
@@ -52,7 +61,8 @@ class App extends React.Component {
                         </div>
                     </div>
                     {/* <People data={data} /> */}
-                    <Location locationData={locationData} />
+                    {/* <Location locationData={locationData} /> */}
+                    <PassTimes />
                 </div>
             </div>
         )

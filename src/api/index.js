@@ -29,3 +29,20 @@ export const fetchLocation = async () => {
         console.log(error);
     }
 }
+
+export const fetchPassTimes = async () => {
+
+    const passTimesUrl = `${url}/iss-pass.json?lat=51.510357&lon=-0.116773`;
+
+    try {
+
+        const data = await axios.get (passTimesUrl);
+
+        return data;
+        
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
