@@ -16,4 +16,4 @@ I have hidden the Google Maps API Key so for maps to work, an API Key will need 
 
 1) Due to a CORS error I was not able to add the pass times information. 
 2) Once the project is pushed to Netlify it won't load due to the fact that the API calls are blocked because they are insecure (HTTP).
-3) Map is not centered. Possible issue is that longitude is not defined.
+3) Map is not centered. Possible issue is that longitude is not defined (Issue is listed in Issues section).
