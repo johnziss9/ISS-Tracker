@@ -2,31 +2,79 @@ import React from 'react';
 import styles from './App.module.css';
 import iss from './images/iss.png';
 import globe from './images/globe.png';
-
-// import People from './components/People/People';
-// import Location from './components/Location/Location';
-
-// import { fetchPeople } from './api';
-// import { fetchLocation } from './api';
+import People from './components/People/People';
+import Location from './components/Location/Location';
+import { fetchPeople } from './api';
+import { fetchLocation } from './api';
+import { act } from 'react-dom/test-utils';
 
 class App extends React.Component {
 
-    state = {
-        // peopleData: {},
-        // locationData: {}
+    constructor(props) {
+        super(props);
+
+        this.clickPeople = this.clickPeople.bind(this);
+        this.clickLocation = this.clickLocation.bind(this);
+
+        this.state = {
+            peopleData: {},
+            locationData: {},
+            peopleClick: false,
+            locationClick: false,
+            showPeople: false,
+            showLocation: false,
+            hidePeople: false,
+            hideLocation: false
+        }
     }
 
     async componentDidMount() {
-        // const fetchedPeople = await fetchPeople();
-        // const fetchedLocation = await fetchLocation();
+        const fetchedPeople = await fetchPeople();
+        const fetchedLocation = await fetchLocation();
 
-        // this.setState({ peopleData: fetchedPeople });
-        // this.setState({ locationData: fetchedLocation });
+        this.setState({ peopleData: fetchedPeople });
+        this.setState({ locationData: fetchedLocation });
+
+        this.clickLocation();
+    }
+
+    clickPeople() {
+        const activeCurrentState = this.state.peopleClick;
+        const currentLocationState = this.state.hideLocation;
+        const currentPeopleState = this.state.showPeople;
+
+        if (!activeCurrentState) {
+            this.setState({
+                peopleClick: !activeCurrentState,
+                locationClick: activeCurrentState,
+                hideLocation: !currentLocationState,
+                showLocation: currentLocationState,
+                hidePeople: currentPeopleState,
+                showPeople: !currentPeopleState
+            });
+        }        
+    }
+
+    clickLocation() {
+        const activeCurrentState = this.state.locationClick;
+        const currentLocationState = this.state.showLocation;
+        const currentPeopleState = this.state.hidePeople;
+
+        if (!activeCurrentState) {
+            this.setState({
+                peopleClick: activeCurrentState,
+                locationClick: !activeCurrentState,
+                hideLocation: currentLocationState,
+                showLocation: !currentLocationState,
+                hidePeople: !currentPeopleState,
+                showPeople: currentPeopleState
+            });
+        }
     }
 
     render() {
 
-        // const { peopleData, locationData } = this.state;
+        const { peopleData, locationData, showPeople, hidePeople, showLocation, hideLocation } = this.state;
 
         return(
             <div className={styles.body}>
@@ -44,15 +92,15 @@ class App extends React.Component {
                         <div className="collapse" id="navbarToggleExternalContent">
                             <div >
                                 <ul className={styles.navList}>
-                                    <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">Current Location</a></li>
+                                    <li className={`${styles.navItem} nav-item`} onClick={this.clickLocation}><a className={`${styles.navItemLink} nav-tem-link`} href="#">Current Location</a></li>
                                     <li className={`${styles.navItem} nav-item`}><img src={globe} className={styles.separator} alt="globe" /></li>
-                                    <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">People</a></li>
+                                    <li className={`${styles.navItem} nav-item`} onClick={this.clickPeople}><a className={`${styles.navItemLink} nav-tem-link`} href="#">People</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    {/* <People data={data} /> */}
-                    {/* <Location locationData={locationData} /> */}
+                    {hideLocation && showPeople && <People peopleData={peopleData} />}
+                    {hidePeople && showLocation && <Location locationData={locationData} />}
                 </div>
             </div>
         )

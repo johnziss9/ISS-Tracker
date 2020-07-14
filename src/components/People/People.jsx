@@ -2,7 +2,7 @@ import React from 'react';
 import person from '../../images/person.png';
 import styles from './People.module.css';
 
-const People = ({ data: { number, people }}) => {
+const People = ({ peopleData: { number, people }}) => {
 
     const peopleNames = [];
 

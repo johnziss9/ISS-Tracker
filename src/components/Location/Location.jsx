@@ -57,7 +57,7 @@ class Location extends React.Component {
                         onClick={this.onMarkerClick}
                         name={'ISS Location'}
                         icon={{
-                            url: 'http://localhost:3000/iss_map_icon.png',
+                            url: 'http://iss-stats.netlify.app/iss_map_icon.png',
                             size: new this.props.google.maps.Size(64, 63)
                         }}
                         position={{ lat: latitude, lng: longitude}}
