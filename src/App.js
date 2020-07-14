@@ -6,7 +6,7 @@ import People from './components/People/People';
 import Location from './components/Location/Location';
 import { fetchPeople } from './api';
 import { fetchLocation } from './api';
-import { act } from 'react-dom/test-utils';
+import { fetchPassTimes } from './api';
 
 class App extends React.Component {
 
@@ -19,6 +19,7 @@ class App extends React.Component {
         this.state = {
             peopleData: {},
             locationData: {},
+            passTimesData: {},
             peopleClick: false,
             locationClick: false,
             showPeople: false,
@@ -31,6 +32,9 @@ class App extends React.Component {
     async componentDidMount() {
         const fetchedPeople = await fetchPeople();
         const fetchedLocation = await fetchLocation();
+        const fetchedPassTimes = await fetchPassTimes();
+
+        console.log(fetchedPassTimes);
 
         this.setState({ peopleData: fetchedPeople });
         this.setState({ locationData: fetchedLocation });
