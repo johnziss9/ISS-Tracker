@@ -12,7 +12,7 @@ const People = ({ peopleData: { number, people }}) => {
 
     return (
         <div className={`${styles.container} container`}>
-            <h2 className={styles.title}>People currently on the IIS</h2>
+            <h2 className={styles.title}>People currently on the ISS</h2>
             <h5 className={styles.subtitle}>Total Number: { number }</h5>
             {peopleNames.map((name, i) => 
                 <h6 className={styles.personName}>
