@@ -5,35 +5,28 @@ import globe from './images/globe.png';
 
 // import People from './components/People/People';
 // import Location from './components/Location/Location';
-import PassTimes from './components/PassTimes/PassTimes';
 
 // import { fetchPeople } from './api';
 // import { fetchLocation } from './api';
-import { fetchPassTimes } from './api';
 
 class App extends React.Component {
 
     state = {
         // peopleData: {},
-        // locationData: {},
-        passTimesData: {}
+        // locationData: {}
     }
 
     async componentDidMount() {
         // const fetchedPeople = await fetchPeople();
         // const fetchedLocation = await fetchLocation();
-        const fetchedPassTimes = await fetchPassTimes();
 
         // this.setState({ peopleData: fetchedPeople });
         // this.setState({ locationData: fetchedLocation });
-        // this.setState({ passTimesData: fetchedPassTimes });
-
-        console.log(fetchedPassTimes)
     }
 
     render() {
 
-        // const { peopleData, locationData, passTimesData } = this.state;
+        // const { peopleData, locationData } = this.state;
 
         return(
             <div className={styles.body}>
@@ -53,8 +46,6 @@ class App extends React.Component {
                                 <ul className={styles.navList}>
                                     <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">Current Location</a></li>
                                     <li className={`${styles.navItem} nav-item`}><img src={globe} className={styles.separator} alt="globe" /></li>
-                                    <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">Pass Times</a></li>
-                                    <li className={`${styles.navItem} nav-item`}><img src={globe} className={styles.separator} alt="globe" /></li>
                                     <li className={`${styles.navItem} nav-item`}><a className={`${styles.navItemLink} nav-tem-link`} href="/">People</a></li>
                                 </ul>
                             </div>
@@ -62,7 +53,6 @@ class App extends React.Component {
                     </div>
                     {/* <People data={data} /> */}
                     {/* <Location locationData={locationData} /> */}
-                    <PassTimes />
                 </div>
             </div>
         )
