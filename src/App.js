@@ -6,7 +6,6 @@ import People from './components/People/People';
 import Location from './components/Location/Location';
 import { fetchPeople } from './api';
 import { fetchLocation } from './api';
-import { act } from 'react-dom/test-utils';
 
 class App extends React.Component {
 

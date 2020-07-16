@@ -47,7 +47,7 @@ class Location extends React.Component {
                     style={mapStyles}
                     containerStyle={containerStyle}
                     className={styles.map}
-                    center={{
+                    initialCenter={{
                         lat: latitude,
                         lng: longitude
                     }}
