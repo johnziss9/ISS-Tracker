@@ -31,15 +31,27 @@ class App extends React.Component {
 
     async componentDidMount() {
         const fetchedPeople = await fetchPeople();
-        const fetchedLocation = await fetchLocation();
+        // const fetchedLocation = await fetchLocation();
         const fetchedPassTimes = await fetchPassTimes();
 
-        console.log(fetchedPassTimes);
-
         this.setState({ peopleData: fetchedPeople });
-        this.setState({ locationData: fetchedLocation });
+        // this.setState({ locationData: fetchedLocation });
+
+        this.interval = setInterval(() => this.updateLocation(), 1000);
 
         this.clickLocation();
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    async updateLocation() {
+        const fetchedLocation = await fetchLocation();
+
+        this.setState(state => ({
+            locationData: fetchedLocation
+        }));
     }
 
     clickPeople() {
@@ -79,6 +91,8 @@ class App extends React.Component {
     render() {
 
         const { peopleData, locationData, showPeople, hidePeople, showLocation, hideLocation } = this.state;
+
+        // console.log(locationData);
 
         return(
             <div className={styles.body}>
