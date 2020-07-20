@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://api.open-notify.org';
+const url = 'https://cors-anywhere.herokuapp.com/http://api.open-notify.org';
 
 export const fetchPeople = async () => {
 
