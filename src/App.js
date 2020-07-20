@@ -19,7 +19,7 @@ class App extends React.Component {
         this.state = {
             peopleData: {},
             locationData: {},
-            passTimes: {},
+            passTimesData: {},
             peopleClick: false,
             locationClick: false,
             showPeople: false,
@@ -34,10 +34,9 @@ class App extends React.Component {
         const fetchedLocation = await fetchLocation();
         const fetchedPassTimes = await fetchPassTimes();
 
-        console.log(fetchedPassTimes);
-
         this.setState({ peopleData: fetchedPeople });
         this.setState({ locationData: fetchedLocation });
+        this.setState({ passTimesData: fetchedPassTimes });
 
         // this.interval = setInterval(() => this.updateLocation(), 1000);
 
@@ -86,9 +85,7 @@ class App extends React.Component {
 
     render() {
 
-        const { peopleData, locationData, showPeople, hidePeople, showLocation, hideLocation } = this.state;
-
-        // console.log(locationData);
+        const { peopleData, locationData, passTimesData, showPeople, hidePeople, showLocation, hideLocation } = this.state;
 
         return(
             <div className={styles.body}>

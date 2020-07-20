@@ -32,12 +32,13 @@ export const fetchLocation = async () => {
 
 export const fetchPassTimes = async () => {
 
-    const locationUrl = `${url}/iss-pass.json?lat=51.510357&lon=-0.116773`;
+    const passTimesUrl = `${url}/iss-pass.json?lat=51.510357&lon=-0.116773`;
 
     try {
-        const response = await axios.get(locationUrl);
+        // const response = await axios.get(locationUrl);
+        const { data: { response }} = await axios.get(passTimesUrl);
 
-        return response;
+        return { response };
 
     } catch (error) {
         console.log(error);
