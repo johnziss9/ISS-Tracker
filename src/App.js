@@ -34,7 +34,15 @@ class App extends React.Component {
         this.setState({ peopleData: fetchedPeople });
         this.setState({ locationData: fetchedLocation });
 
+        // this.interval = setInterval(() => this.updateLocation(), 1000);
+
         this.clickLocation();
+    }
+
+    async updateLocation() {
+        const fetchedLocation = await fetchLocation();
+
+        this.setState({ locationData: fetchedLocation });
     }
 
     clickPeople() {

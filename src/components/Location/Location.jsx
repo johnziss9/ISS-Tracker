@@ -37,7 +37,6 @@ class Location extends React.Component {
         }
 
         return (
-
             <div className={`${styles.container} container`}>
                 <h2>Current Location of ISS</h2>
                 <h4>Last update of location shown: {getTime()}</h4>
