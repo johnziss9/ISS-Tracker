@@ -6,6 +6,8 @@ import People from './components/People/People';
 import Location from './components/Location/Location';
 import { fetchPeople } from './api';
 import { fetchLocation } from './api';
+import { fetchPassTimes } from './api';
+import PassTimes from './components/PassTimes/PassTimes';
 
 class App extends React.Component {
 
@@ -18,6 +20,7 @@ class App extends React.Component {
         this.state = {
             peopleData: {},
             locationData: {},
+            passTimesData: {},
             peopleClick: false,
             locationClick: false,
             showPeople: false,
@@ -30,9 +33,13 @@ class App extends React.Component {
     async componentDidMount() {
         const fetchedPeople = await fetchPeople();
         const fetchedLocation = await fetchLocation();
+        const fetchedPassTimes = await fetchPassTimes();
 
         this.setState({ peopleData: fetchedPeople });
         this.setState({ locationData: fetchedLocation });
+        this.setState({ passTimesData: fetchedPassTimes });
+
+        // this.interval = setInterval(() => this.updateLocation(), 1000);
 
         // this.interval = setInterval(() => this.updateLocation(), 1000);
 
@@ -81,7 +88,7 @@ class App extends React.Component {
 
     render() {
 
-        const { peopleData, locationData, showPeople, hidePeople, showLocation, hideLocation } = this.state;
+        const { peopleData, locationData, passTimesData, showPeople, hidePeople, showLocation, hideLocation } = this.state;
 
         return(
             <div className={styles.body}>
