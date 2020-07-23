@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 const url = 'https://cors-anywhere.herokuapp.com/http://api.open-notify.org';
+let latitude = 0;
+let longitude = 0;
 
 export const fetchPeople = async () => {
 
@@ -30,12 +32,16 @@ export const fetchLocation = async () => {
     }
 }
 
+navigator.geolocation.getCurrentPosition(function(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+});
+
 export const fetchPassTimes = async () => {
 
-    const passTimesUrl = `${url}/iss-pass.json?lat=51.510357&lon=-0.116773`;
-
     try {
-        // const response = await axios.get(locationUrl);
+        const passTimesUrl = `${url}/iss-pass.json?lat=${latitude}&lon=${longitude}`;
+                
         const { data: { response }} = await axios.get(passTimesUrl);
 
         return { response };

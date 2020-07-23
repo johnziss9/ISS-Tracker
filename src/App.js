@@ -7,6 +7,7 @@ import Location from './components/Location/Location';
 import { fetchPeople } from './api';
 import { fetchLocation } from './api';
 import { fetchPassTimes } from './api';
+import PassTimes from './components/PassTimes/PassTimes';
 
 class App extends React.Component {
 
