@@ -50,6 +50,7 @@
 .navItemLink {
     color: white;
     font-weight: bold;
+    display: inline !important;
 }
 
 .navItemLink:hover {
