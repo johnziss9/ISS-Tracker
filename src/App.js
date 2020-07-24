@@ -47,49 +47,47 @@ class App extends React.Component {
 
         return(
             <div className={styles.body}>
-                <div className="container">
-                    <BrowserRouter>
-                        <div className="pos-f-t">
-                            <nav className={`${styles.navbar} navbar`}>
-                                <div className={styles.logoContainer}>
-                                    <img className={styles.logo} src={iss} alt="logo" />
-                                    <h3 className={styles.title}>ISS Tracker</h3>
-                                </div>
-                                <button className={`${styles.navbarToggler} navbar-toggler`} type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className={`${styles.navbarTogglerIcon} navbar-toggler-icon`}></span>
-                                </button>
-                            </nav>
-                            <div className="collapse" id="navbarToggleExternalContent">
-                                <div >
-                                    <ul className={styles.navList}>
-                                        <li className={`${styles.navItem} nav-item`}>
-                                            <NavLink tag={Link} to="/Location" className={`${styles.navItemLink} nav-item-link`}>Location</NavLink>
-                                        </li>
-                                        <li className={`${styles.navItem} nav-item`}>
-                                            <img src={globe} className={styles.separator} alt="globe" />
-                                        </li>
-                                        <li className={`${styles.navItem} nav-item`}>
-                                            <NavLink tag={Link} to="/People" className={`${styles.navItemLink} nav-item-link`}>People</NavLink>
-                                        </li>
-                                        <li className={`${styles.navItem} nav-item`}>
-                                            <img src={globe} className={styles.separator} alt="globe" />
-                                        </li>
-                                        <li className={`${styles.navItem} nav-item`}>
-                                            <NavLink tag={Link} to="/PassTimes" className={`${styles.navItemLink} nav-item-link`}>Pass Times</NavLink>
-                                        </li>
-                                    </ul>
-                                </div>
+                <BrowserRouter>
+                    <div className="container pos-f-t">
+                        <nav className={`${styles.navbar} navbar`}>
+                            <div className={styles.logoContainer}>
+                                <img className={styles.logo} src={iss} alt="logo" />
+                                <h3 className={styles.title}>ISS Tracker</h3>
+                            </div>
+                            <button className={`${styles.navbarToggler} navbar-toggler`} type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className={`${styles.navbarTogglerIcon} navbar-toggler-icon`}></span>
+                            </button>
+                        </nav>
+                        <div className="collapse" id="navbarToggleExternalContent">
+                            <div >
+                                <ul className={styles.navList}>
+                                    <li className={`${styles.navItem} nav-item`}>
+                                        <NavLink tag={Link} to="/Location" className={`${styles.navItemLink} nav-item-link`}>Location</NavLink>
+                                    </li>
+                                    <li className={`${styles.navItem} nav-item`}>
+                                        <img src={globe} className={styles.separator} alt="globe" />
+                                    </li>
+                                    <li className={`${styles.navItem} nav-item`}>
+                                        <NavLink tag={Link} to="/People" className={`${styles.navItemLink} nav-item-link`}>People</NavLink>
+                                    </li>
+                                    <li className={`${styles.navItem} nav-item`}>
+                                        <img src={globe} className={styles.separator} alt="globe" />
+                                    </li>
+                                    <li className={`${styles.navItem} nav-item`}>
+                                        <NavLink tag={Link} to="/PassTimes" className={`${styles.navItemLink} nav-item-link`}>Pass Times</NavLink>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <Switch>
-                            <Route exact path="/" component={() => <Location locationData={locationData} />} />
-                            <Route path="/Location" component={() => <Location locationData={locationData} />} />
-                            <Route path="/People" component={() => <People peopleData={peopleData} />} />
-                            <Route path="/PassTimes" component={() => <PassTimes passTimesData={passTimesData} />} />
-                            {/* <Route component={NotFound} /> */}
-                        </Switch>
-                    </BrowserRouter>
-                </div>
+                    </div>
+                    <Switch>
+                        <Route exact path="/" component={() => <Location locationData={locationData} />} />
+                        <Route path="/Location" component={() => <Location locationData={locationData} />} />
+                        <Route path="/People" component={() => <People peopleData={peopleData} />} />
+                        <Route path="/PassTimes" component={() => <PassTimes passTimesData={passTimesData} />} />
+                        {/* <Route component={NotFound} /> */}
+                    </Switch>
+                </BrowserRouter>
             </div>
         )
     }

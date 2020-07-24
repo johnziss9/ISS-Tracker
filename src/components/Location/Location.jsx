@@ -14,9 +14,9 @@ class Location extends React.Component {
         };
         
         const containerStyle = {
-            width: window.innerWidth > 700 ? '60%' : '80%',
-            height: '400px'
-          }
+            width: '100%',
+            height: '600px'
+        }
 
         function getTime() {
             const unitTimestamp = timestamp;
@@ -37,10 +37,11 @@ class Location extends React.Component {
         }
 
         return (
-
-            <div className={`${styles.container} container`}>
-                <h2>Current Location of ISS</h2>
-                <h4>Last update of location shown: {getTime()}</h4>
+            <div>
+                <div className={`${styles.container} container`}>
+                    <h2>Current Location of ISS</h2>
+                    <h4>Last update of location shown: {getTime()}</h4>
+                </div>
                 <Map
                     google={this.props.google}
                     zoom={window.innerWidth > 700 ? 3 : 2}
@@ -53,7 +54,7 @@ class Location extends React.Component {
                     }}
                     disableDefaultUI={true}
                 >
-                   <Marker
+                <Marker
                         onClick={this.onMarkerClick}
                         name={'ISS Location'}
                         icon={{
