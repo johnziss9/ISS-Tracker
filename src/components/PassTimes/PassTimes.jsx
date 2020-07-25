@@ -6,29 +6,22 @@ class PassTimes extends React.Component {
     render() {
 
         const { passTimesData: { response }} = this.props;
+            
+        const items = [];
 
-        // function getTime() {
-        //     const unitTimestamp = timestamp;
-
-        //     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-        //     const date = new Date(unitTimestamp * 1000);
-        //     const year = date.getFullYear();
-        //     const month = months[date.getMonth()];
-        //     const day = date.getDate();
-        //     const hours = date.getHours();
-        //     const minutes = "0" + date.getMinutes();
-        //     const seconds = "0" + date.getSeconds();
-
-        //     const converted = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2)
-
-        //     return converted;
-        // }
+        for (var item in response) {
+            items.push(response[item]);
+        }
 
         return (
 
             <div className={`${styles.container} container`}>
-                <h2>Pass Times of ISS on Current Location</h2>
+                <h2>Next Preticted Pass Times of ISS on Current Location</h2>
+                <h4>Time & Duration</h4>
+                {items.map((item, i) =>
+                <h2 key={i}>
+                    {item.risetime} - {item.duration}
+                </h2>)}
             </div>
         )
     }

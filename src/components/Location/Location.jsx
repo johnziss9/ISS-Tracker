@@ -15,7 +15,7 @@ class Location extends React.Component {
         
         const containerStyle = {
             width: '100%',
-            height: '600px'
+            height: '400px'
         }
 
         function getTime() {
@@ -53,6 +53,8 @@ class Location extends React.Component {
                         lng: longitude
                     }}
                     disableDefaultUI={true}
+                    maxZoom={4}
+                    minZoom={2}
                 >
                 <Marker
                         onClick={this.onMarkerClick}
