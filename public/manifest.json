@@ -1,6 +1,6 @@
 {
-  "short_name": "ISS Stats",
-  "name": "ISS Stats",
+  "short_name": "ISS Tracking",
+  "name": "ISS Tracking",
   "icons": [
     {
       "src": "iss.ico",
