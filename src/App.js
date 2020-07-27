@@ -25,14 +25,14 @@ class App extends React.Component {
 
     async componentDidMount() {
         const fetchedPeople = await fetchPeople();
-        // const fetchedLocation = await fetchLocation();
+        const fetchedLocation = await fetchLocation();
         const fetchedPassTimes = await fetchPassTimes();
 
         this.setState({ peopleData: fetchedPeople });
-        // this.setState({ locationData: fetchedLocation });
+        this.setState({ locationData: fetchedLocation });
         this.setState({ passTimesData: fetchedPassTimes });
 
-        this.interval = setInterval(() => this.updateLocation(), 1000);
+        // this.interval = setInterval(() => this.updateLocation(), 1000);
     }
 
     async updateLocation() {
