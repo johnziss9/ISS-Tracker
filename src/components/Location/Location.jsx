@@ -40,7 +40,7 @@ class Location extends React.Component {
             <div>
                 <div className={`${styles.container} container`}>
                     <h2>Current Location of ISS</h2>
-                    <h4>Last update of location shown: {getTime()}</h4>
+                    <h4>Last update: {getTime()}</h4>
                 </div>
                 <Map
                     google={this.props.google}

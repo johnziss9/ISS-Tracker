@@ -45,7 +45,7 @@ class PassTimes extends React.Component {
 
             <div className={`${styles.container} container`}>
                 <h2>Next Preticted Pass Times of ISS on Current Location</h2>
-                <h4>Time & Duration</h4>
+                <h4>Date, Time & Duration</h4>
                 {items.map((item, i) =>
                 <h6 key={i}>
                     {getTime(item.risetime)} - {getDuration(item.duration)}
