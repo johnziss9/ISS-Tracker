@@ -21,8 +21,8 @@ I have hidden the Google Maps API Key so for maps to work, an API Key will need 
 1) ~~Due to a CORS error I was not able to add the pass times information.~~ (Fixed)
 2) ~~Once the project is pushed to Netlify it won't load due to the fact that the API calls are blocked because they are insecure (HTTP).~~ (Fixed)
 3) When first loading PassTimes, it throws an undefined error. Once refreshed it works. (Locally this error doesn't occur.)
+4) ~~Small jump of the content when opening the Navbar.~~ (Fixed)
 
 ## Improvements
 
 1) Either add a button to update the location of the ISS or set it to be done automatically.
-2) Small jump of the content when opening the Navbar.

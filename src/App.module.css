@@ -49,7 +49,7 @@
 .navItemLink {
     color: white;
     font-weight: bold;
-    display: inline !important;
+    display: inline-block !important;
 }
 
 .navItemLink:hover {
