@@ -7,6 +7,12 @@
     margin: 30px 0;
 }
 
+/* The transparent border is used to fix the small white space 
+when the height is not long enough to fit the whole content. */
+.peopleContainer {
+    border: 1px solid transparent;
+}
+
 .personImg {
     width: 50px;
     margin-right: 20px;

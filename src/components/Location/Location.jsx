@@ -14,9 +14,9 @@ class Location extends React.Component {
         };
         
         const containerStyle = {
-            width: window.innerWidth > 700 ? '60%' : '80%',
+            width: '100%',
             height: '400px'
-          }
+        }
 
         function getTime() {
             const unitTimestamp = timestamp;
@@ -37,9 +37,11 @@ class Location extends React.Component {
         }
 
         return (
-            <div className={`${styles.container} container`}>
-                <h2>Current Location of ISS</h2>
-                <h4>Last update of location shown: {getTime()}</h4>
+            <div>
+                <div className={`${styles.container} container`}>
+                    <h2>Current Location of ISS</h2>
+                    <h4>Last update: {getTime()}</h4>
+                </div>
                 <Map
                     google={this.props.google}
                     zoom={window.innerWidth > 700 ? 3 : 2}
@@ -51,12 +53,14 @@ class Location extends React.Component {
                         lng: longitude
                     }}
                     disableDefaultUI={true}
+                    maxZoom={4}
+                    minZoom={2}
                 >
-                   <Marker
+                <Marker
                         onClick={this.onMarkerClick}
                         name={'ISS Location'}
                         icon={{
-                            url: 'http://localhost:3000/iss_map_icon.png',
+                            url: 'https://iss-tracking.netlify.app/iss_map_icon.png',
                             size: new this.props.google.maps.Size(64, 63)
                         }}
                         position={{ lat: latitude, lng: longitude}}
@@ -68,5 +72,5 @@ class Location extends React.Component {
 }
 
 export default GoogleApiWrapper ({
-    apiKey: process.env.REACT_APP_GOOGLE_API_KEY
+    apiKey: 'AIzaSyDqJqaqtVjuJUrBHIF23KdScpvCGfy5P8M'
 })(Location);

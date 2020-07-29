@@ -14,11 +14,13 @@ const People = ({ peopleData: { number, people }}) => {
         <div className={`${styles.container} container`}>
             <h2 className={styles.title}>People currently on the ISS</h2>
             <h5 className={styles.subtitle}>Total Number: { number }</h5>
-            {peopleNames.map((name, i) => 
-                <h6 className={styles.personName}>
-                    <img src={person} alt="person" className={styles.personImg} />
-                    {name}
-                </h6>)}
+            <div className={styles.peopleContainer}>
+                {peopleNames.map((name, i) => 
+                    <h6 key={i} className={styles.personName}>
+                        <img src={person} alt="person" className={styles.personImg} />
+                        {name}
+                    </h6>)}
+            </div> 
         </div>
     )
 }
